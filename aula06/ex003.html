@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head> <!-- Parte de configurações do site-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terceiro Programa</title>
+    <style>
+        body {
+            background-color: rgb(26, 88, 146);
+            color: white;
+            /* Comentário em CSS */
+            font: normal 15pt Segoe UI;
+        }
+    </style>
+</head>
+
+<body> <!-- Comentário em HTML-->
+
+    <h1>Olá, mundo!</h1>
+    <p>Estou aprendendo JavaScript 🥳</p>
+
+    <script>
+        var n1 = window.prompt('Digite um número:') // retorna uma string
+        var n2 = window.prompt('Digite outro número:')
+        /* 
+        Para converter a string em número, podemos fazer da seguinte forma.
+        Number.parseInt - Converte para número inteiro
+        Number.parseFloat - Converte para número Real
+        Number - O JavaScript "se vira" e verifica se é real ou inteiro
+        */
+        var s = Number.parseInt(n1) + Number.parseInt(n2)
+        window.alert(`A soma entre ${n1} e ${n2} é igual a ${s}`)
+
+    </script>
+</body>
+
+</html>

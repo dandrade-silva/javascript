@@ -4,25 +4,25 @@
 <head> <!-- Parte de configurações do site-->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Primeiro Programa</title>
+    <title>Segundo Programa</title>
     <style>
         body {
             background-color: rgb(26, 88, 146);
             color: white;
+            /* Comentário em CSS */
             font: normal 15pt Segoe UI;
         }
     </style>
 </head>
 
-<body> <!-- Parte que será exibida no site-->
+<body> <!-- Comentário em HTML-->
 
     <h1>Olá, mundo!</h1>
     <p>Estou aprendendo JavaScript 🥳</p>
 
     <script>
-        window.alert("Minha primeira mensagem!")
-        window.confirm("Está gostando de JS?") // Janela com botão ok e Cancelar.
-        window.prompt('Qual é o seu nome?') // Input do usuário
+        var nome = window.prompt('Qual é o seu nome?') // Input do usuário
+        window.alert("É um grande prazer te conhecer, " + nome + "!") // Concatenação
     </script>
 </body>
 

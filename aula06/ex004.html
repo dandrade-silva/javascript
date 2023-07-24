@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formatando Strings</title>
+    <style>
+        body {
+            background-color: rgb(26, 88, 146);
+            color: white;
+            /* Comentário em CSS */
+            font: normal 15pt Segoe UI;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Formatando Tipos de dados</h1>
+    <h2>String</h2>
+    <script>
+        var nome = window.prompt('Qual é o seu nome?')
+        document.write(`Olá, ${nome}! Tudo bem? <br/>`)
+        document.write(`Seu nome em MAIÚSCULAS é ${nome.toUpperCase()}<br/>`)
+        document.write(`Seu nome em minúsculas é ${nome.toLowerCase()}<br/>`)
+    </script>
+    <h2>Números</h2>
+    <script>
+        var salario = Number.parseFloat(window.prompt('Salário atual R$ :'))
+        document.write(`O seu salário é R$ ${salario} <br/>`)
+        document.write(`Podemos fixar o número com var.toFixed(2): R$ ${salario.toFixed(2)} <br/>`)
+        document.write(`Também podemos mudar o "." por "," com .replace: R$ ${salario.toFixed(2).replace(".", ",")}<br/>`)
+        document.write(`Formatar por localidade com toLocaleString: ${salario.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}`)
+
+    </script>
+</body>
+
+</html>
