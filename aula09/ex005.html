@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Primeiros passos com DOM</title>
+    <style>
+        body {
+            background-color: rgb(29, 96, 158);
+            color: white;
+            /* Comentário em CSS */
+            font: normal 15pt Arial;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Iniciando estudos com DOM</h1>
+    <p>Aqui vai o resultado</p>
+    <p>Aprendendo a usar o <strong>DOM</strong> em JavaScript.</p>
+    <div id="msg">Clique em mim</div>
+
+    <h2>O que é DOM?</h2>
+    <p>
+        DOM é um acrônimo para Document Object Model, que é um modelo de objetos para documentos.
+        Basicamente é um conjunto de objetos dentro do seu navegador que vai dar acesso aos
+        componentes internos do seu website.
+    </p>
+
+    <h2>Árvore DOM</h2>
+    <p>
+        Você precisa conhecer e saber fazer a árvore DOM do seu site. <br>
+        A árvore DOM começa da raiz e essa raiz dentro do seu navegador é chamada de <strong>window</strong>
+    </p>
+    <ol>
+        <li>window</li>
+        <!--Dentro do window temos vários objetos, vamos exemplificar com 3:-->
+        <ol>
+            <li>location</li> <!--Diz qual é a URL do seu site, pagina atual, pagina anterior, etc..-->
+            <li>document</li> <!-- Documento atual-->
+            <ol>
+                <li>html</li>
+                <ol>
+                    <li>head</li>
+                    <ol>
+                        <li>meta</li>
+                        <li>title</li>
+                    </ol>
+                    <li>body</li>
+                    <ol>
+                        <li>h1</li>
+                        <li>p</li>
+                        <li>p</li>
+                        <ol>
+                            <li>strong</li>
+                        </ol>
+                        <li>div</li>
+                    </ol>
+                </ol>
+            </ol>
+            <li>history</li> <!--Histórico da navegação ("de onde veio e para onde vai")-->
+        </ol>
+    </ol>
+
+    <p>Todos os itens da lista criada acima, são elementos da árvore DOM</p>
+
+    <h2>Selecionando elementos</h2>
+    <ul>
+        <li>por Marca: <code>getElementsByTagName('p')</code></li>
+        <script>
+            var corpo = window.document.body
+            corpo.style.background = 'gray'
+
+            var p1 = window.document.getElementsByTagName('p')[1]
+            window.document.write(`>> innerHTML: ${p1.innerHTML} <br/>`)
+            window.document.write(`>> innerText: ${p1.innerText} <br/>`)
+
+            var d = window.document.getElementById('msg')
+            d.style.background = 'green'
+            d.style.width = "50%"
+            d.style.textAlign = "center"
+        </script>
+        <li>por ID: <code>getElementById()</code></li>
+
+        <li>por Nome: <code>getElementsByName()</code></li>
+        <li>por Classe: <code>getElementsByClassName()</code></li>
+        <li>por Seletor: <code>querySelector('div#msg')</code></li> <!-- # ID, . classe-->
+
+    </ul>
+
+</body>
+
+</html>
