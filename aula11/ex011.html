@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brasileiro</title>
+</head>
+
+<body>
+    <h1>Brasileiro ou Estrangeiro?</h1>
+    <input type="text" name="txtpais" id="txtpais">
+    <input type="button" value="Verificar" onclick="avaliar()">
+    <div id="res"></div>
+    <script>
+        function avaliar() {
+            var res = window.document.querySelector('div#res')
+            var pais = document.getElementById('txtpais').value
+            res.innerHTML = `<p>Vivendo em <strong>${pais}</strong>.</p>`
+            if (pais.toLowerCase() != 'brasil') {
+                res.innerHTML += "Você é <strong>Estrangeiro!</strong>"
+            } else {
+                res.innerHTML += 'Você é <strong>Brasileiro!</strong>'
+            }
+        }
+    </script>
+</body>
+
+</html>
