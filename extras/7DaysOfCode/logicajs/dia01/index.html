@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>7DaysOfCode 🎯</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <h1>Lógica de programação</h1>
+        <h2>Dia 1/7: Operações Booleanas</h2>
+    </header>
+
+    <section>
+        <div>
+            <p>
+                Variável 1: <input type="number" name="txtn1" id="txtn1">
+                Tipo:
+                <select name="tipoDados1" id="tipoDados1">
+                    <option value="string">String (Texto) </option>
+                    <option value="numero">Number (Número) </option>
+                </select>
+            </p>
+            <p>
+                Variável 2: <input type="number" name="txtn2" id="txtn2">
+                Tipo:
+                <select name="tipoDados2" id="tipoDados2">
+                    <option value="string">String (Texto) </option>
+                    <option value="numero">Number (Número) </option>
+                </select>
+            </p>
+            O que você deseja comparar:
+            <select name="listaComparacoes" id="listaComparacoes">
+                <option value="tipo">Tipo</option>
+                <option value="valor">Valor</option>
+                <option value="tipoValor">Tipo e Valor</option>
+            </select>
+            <p><input type="button" value="COMPARAR" onclick="comparar()"></p>
+        </div>
+        <div id="res">
+            O resultado vai aparecer aqui...
+        </div>
+    </section>
+
+    <footer>
+        <p>
+            &copy; 7DaysOfCode
+        </p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
