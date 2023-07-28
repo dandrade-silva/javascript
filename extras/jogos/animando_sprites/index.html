@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas Animando Sprites</title>
+</head>
+
+<body>
+
+    <img id="dino" src="personagens/dino/Walk (1).png" alt="Dino">
+    <button onkeydown="andar()">Andar</button>
+
+    <script>
+
+        function andar() {
+            let dino = document.querySelector("img#dino")
+            let x = 8
+            alert(x)
+            dino.src = `personagens/dino/Walk (${x}).png`
+            x += 1
+
+        }
+    </script>
+</body>
+
+</html>
