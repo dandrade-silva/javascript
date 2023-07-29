@@ -1,11 +1,19 @@
 const canvas = document.querySelector('canvas')
 const ctx = canvas.getContext("2d")
+let direction
+let loopId
 
-const audio = new Audio('../assets/audio.mp3')
+const audio = new Audio('./assets/audio.mp3')
 
 const size = 30
 
-const snake = [{ x: 270, y: 240 }]
+const snake = [
+    { x: 270, y: 240 },
+    { x: 300, y: 240 },
+    { x: 330, y: 240 },
+    { x: 360, y: 240 },
+    { x: 390, y: 240 },
+]
 
 const randomNumber = (min, max) => {
     return Math.round(Math.random() * (max - min) + min)
@@ -30,9 +38,6 @@ const food = {
     color: randomColor()
 
 }
-
-let direction
-let loopId
 
 const drawFood = () => {
 
@@ -122,12 +127,22 @@ const checkEat = () => {
 const checkCollision = () => {
     const head = snake[snake.length - 1]
     const canvasLimit = canvas.width - size
+    const neckIndex = snake.length - 2
 
-    const wallCollision = head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
+    const wallCollision =
+        head.x < 0 || head.x > canvasLimit || head.y < 0 || head.y > canvasLimit
 
-    if (wallCollision) {
+    const selfCollision = snake.find((position, index) => {
+        return index < neckIndex && position.x == head.x && position.y == head.y
+    })
+
+    if (wallCollision || selfCollision) {
         alert('Você perdeu')
     }
+}
+
+const gameOver = () => {
+    direction = undefined
 }
 
 const gameLoop = () => {
@@ -143,42 +158,19 @@ const gameLoop = () => {
 
     loopId = setTimeout(() => {
         gameLoop()
-    }, 50)
+    }, 350)
 }
 
 gameLoop()
 
 document.addEventListener("keydown", ({ key }) => {
-    console.log(key)
-    switch (key) {
-        case "ArrowRight":
-            if (direction == "left") {
-                break
-            } else {
-                direction = "right"
-                break
-            }
-        case "ArrowLeft":
-            if (direction == "right") {
-                break
-            } else {
-                direction = "left"
-                break
-            }
-        case "ArrowDown":
-            if (direction == "up") {
-                break
-            } else {
-                direction = "down"
-                break
-            }
-        case "ArrowUp":
-            if (direction == "down") {
-                break
-            } else {
-                direction = "up"
-                break
-            }
-            break
+    if (key == "ArrowRight" && direction != "left") {
+        direction = "right"
+    } else if (key == "ArrowLeft" && direction != "right") {
+        direction = "left"
+    } else if (key == "ArrowDown" && direction != "up") {
+        direction = "down"
+    } else if (key == "ArrowUp" && direction != "down") {
+        direction = "up"
     }
 })
