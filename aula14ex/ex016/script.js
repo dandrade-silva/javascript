@@ -10,12 +10,24 @@ function contar() {
 
   res.innerHTML += `${inicio}👉`;
 
-  for (i = inicio; i <= fim; i += passo) {
-    if (i == inicio) {
-      res.innerHTML = `${i}👉`;
-    } else {
-      res.innerHTML += `${i}👉`;
+  // Validações
+  if (passo <= 0) {
+    alert(
+      `[ERRO] Imposível utilizar Passo 0 ou NEGATIVO. Contando com Passo 1!`
+    );
+    passo = 1;
+  } else if (txtInicio.value == "" || txtFim.value == "") {
+    alert("[ERRO] Impossível contar! Informe o INICIO e o FIM da contagem");
+  } else if (inicio >= fim) {
+    passo = -passo;
+  } else {
+    for (i = inicio; i <= fim; i += passo) {
+      if (i == inicio) {
+        res.innerHTML = `${i}👉`;
+      } else {
+        res.innerHTML += `${i}👉`;
+      }
     }
+    res.innerHTML += `🏁`;
   }
-  res.innerHTML += `🏁`;
 }
